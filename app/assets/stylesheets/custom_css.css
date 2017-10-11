@@ -1,0 +1,724 @@
+#root{
+  height: '100%';
+}
+
+.addCnt {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 55;
+    width: 30%;
+    max-width: 300px;
+}
+
+.addCnt a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background: #ff7900;
+    border: 2px solid #ff7900;
+    padding: 8px 30px;
+    font-size: 16px;
+    text-align:center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+
+    -webkit-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -moz-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -ms-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+
+
+}
+
+.addCnt a:hover {
+    background: #fff;
+    color: #ff7900;
+}
+
+h5.addCnt_title {
+    width: 70%;
+    float: left;
+    padding: 10px 0;
+}
+
+.rghtCntTop {
+    padding: 4px 0 13px;
+    border-bottom: 3px solid #e6e6e6;
+    margin-bottom: 15px;
+    margin: 0 3%;
+}
+
+.addcnt_info {
+    width: 84%;
+    border: 1px solid #e6e6e6;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+
+    -webkit-box-shadow: 6px 8px 25px rgba(0,0,0,.2);
+    -moz-box-shadow: 6px 8px 25px rgba(0,0,0,.2);
+    -ms-box-shadow: 6px 8px 25px rgba(0,0,0,.2);
+    box-shadow: 6px 8px 25px rgba(0,0,0,.2);
+
+}
+
+.addcnt_info_form {
+    position: relative;
+    width: 84%;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.addcnt_photo {
+    width: 100%;
+}
+
+.addcnt_photo .cnt_photo {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.addcnt_photo .cnt_photo .user_image {
+    width: 100%;
+    max-width: 150px;
+}
+
+.addcnt_photo .cnt_photo a {
+    font-size: 13px;
+    color: black;
+}
+
+.addcnt_photo .cnt_name {
+    font-size: 30px;
+    width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.addcnt_title {
+    background-color: #e6e6e6;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    padding: 18px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 34px;
+}
+
+.cnt_label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+
+.cnt_input {
+    width: 100%;
+    padding: 7px 14px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+
+}
+
+.cnt_select {
+    width: 100%;
+
+    font-size: 20px;
+    border-color: #aaa;
+    border-width: 1px;
+}
+
+.cnt_select .Select-control {
+    padding: 7px 0;
+}
+
+.cnt_select .Select-control .Select-placeholder {
+    padding-top: 7px;
+}
+
+.padding_bottom_15 {
+    padding-bottom: 15px;
+}
+
+.padding_bottom_25 {
+    padding-bottom: 25px;
+}
+
+.padding_bottom_50 {
+    padding-bottom: 50px;
+}
+
+.width_49p_inline {
+    width: 49%;
+    display: inline-block;
+}
+
+.margin_left_2p {
+    margin-left: 2%;
+}
+
+
+.addcnt_detail {
+    margin-top: 30px;
+    background-color: #fff;
+}
+
+.cnt_detail {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 84%;
+
+}
+
+.create_address {
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.cnt_newAddress {
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    width: 92%;
+}
+
+
+
+.cnt_radio {
+    margin-top: 10px;
+
+}
+
+.cnt_radio span {
+    margin-left: 12px;
+}
+
+.cnt_description p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.cnt_textarea {
+    /*height: 50px;*/
+    width: 100%;
+}
+.btn_create_address {
+    max-width: 400px;
+    width: 50%;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #0099bc;
+    border: 2px solid #0099bc;
+    padding-left: 8px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -moz-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -ms-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+
+}
+
+.btn_create_address:hover {
+    background-color: #fff;
+    border: 2px solid #0099bc;
+    color: #0099bc;
+}
+
+.btn_submit {
+    max-width: 300px;
+    width: 40%;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #ff7900;
+    border: 2px solid #ff7900;
+    padding-left: 8px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -moz-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    -ms-box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+    box-shadow: 2px 5px 15px rgba(0,0,0,.2);
+
+}
+
+.btn_submit:hover {
+    background-color: #fff;
+    border: 2px solid #ff7900;
+    color: #ff7900;
+}
+
+.cnt_submit {
+    margin-bottom: 10px;
+}
+
+.cnt_submit label {
+    margin-top: 20px;
+}
+
+.cnt_submit a {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    color: black;
+    margin-top: 15px;
+    text-decoration: underline;
+}
+
+
+.send_invoice {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.client_photo {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    margin-left: -2%;
+}
+
+.add_client_invoice {
+    width: 80%;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.add_client {
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid #aaa;
+    background: #f2f2f2;
+    color: #4d4d4d;
+    text-transform: capitalize;
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.client_name {
+    width: 90%;
+    display: inline-block;
+}
+.remove_client {
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+
+.remove_client a {
+    color: #4d4d4d;
+    background-color:  #ccc;
+    border: 2px solid #4d4d4d;
+    border-radius: 18px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    margin-left: 100%;
+    transform: translateX(-80%);
+
+}
+.remove_client a:hover{
+    text-decoration: none;
+}
+
+.textItalic {
+    font-style: italic;
+}
+.colorGreen {
+    color: rgb(168, 192, 72);
+}
+.addHorseRowWrap {
+    float: left;
+    position: relative;
+    width: 100%;
+    border-bottom: 3px solid #e6e6e6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.breadcrumbWrap,
+.addHorsesWrap {
+    padding: 0;
+}
+.breadcrumbWrap .breadcrumb {
+    font-size: 20px;
+    padding: 5px 0;
+    background-color: transparent;
+}
+.breadcrumbWrap .breadcrumb > li + li:before {
+    content: '';
+    background-image: url('/assets/calRghtIcnGry.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0 10px;
+}
+.breadcrumbWrap .breadcrumb > li > a {
+    color: #4d4d4d;
+}
+.breadcrumbWrap .breadcrumb > li > a:hover,
+.breadcrumbWrap .breadcrumb > li > a:focus {
+    color: #4d4d4d;
+}
+.addHorses {
+    float: right;
+    position: relative;
+    width: 50%;
+}
+.horseTableContainer {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    margin: 50px auto;
+    float: left;
+    position: relative;
+    width: 100%;
+    padding: 25px 20px;
+    -webkit-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.horseTableContainer .customDatePicker {
+    max-width: 220px;
+}
+.filterBoxWrap {
+    margin-bottom: 40px;
+}
+.filterBoxWrap .filterBox {
+    width: calc(100% / 5 - 17px);
+    margin: 0 10px;
+    /* min-width: 180px; */
+    vertical-align: middle;
+    display: inline-block;
+}
+.filterBoxWrap .filterBox:first-child {
+    margin-left: 0;
+}
+.filterBoxWrap .filterBox:last-child {
+    margin-right: 0;
+}
+.filterBoxWrap .filterBox .titleBar {
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #ddd;
+    padding: 5px 5px;
+}
+.filterBoxWrap .filterBox .contentWrap {
+    background-color: #fff;
+    padding: 15px 50px;
+    position: relative;
+}
+.filterBoxWrap .filterBox .contentWrap .chartHorseIcon {
+    position: absolute;
+    top: 25%;
+    margin: 0 auto;
+    vertical-align: middle;
+    left: 45%;
+    height: 30px;
+}
+.horseTableContainer .filterTitle {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.horseSelectBoxWrap {
+    margin-bottom: 20px;
+}
+.horseSelectBoxWrap h5 {
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.horseSelectBox {
+    max-width: 200px;
+    min-height: 35px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+.horseSelectBox:focus {
+    border-color: #ff7900;
+    outline: none !important;
+    box-shadow: none;
+}
+.horseTable .headRow {
+    background-color: #e6e6e6;
+}
+.horseTable {
+    background-color: #fff !important;
+    margin-bottom: 0;
+}
+.horseTable > tbody > tr > td,
+.horseTable > tbody > tr > th {
+    padding: 12px 8px;
+    vertical-align: middle;
+}
+.horseTable > thead > tr > th {
+    font-size: 13px;
+    font-weight: bold;
+}
+.horseTable > tbody > tr > td {
+    background-color: #fff !important;
+}
+.horseTable > tbody > tr > td.columnTitle {
+    font-size: 12px;
+    font-weight: 800;
+}
+.horseTable > tbody > tr > td > img {
+    display: block;
+}
+.horseTable > tbody > tr > td.iconWrap img {
+    vertical-align: middle;
+}
+.horseTable .rowTitle .iconWrap {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 1px 5px;
+}
+.blueHorse {
+    background-color: #a9e9f9;
+    border: 1px solid #5cc9d9;
+}
+.cinnamonHorse {
+    background-color: #fab9b8;
+    border: 1px solid #ef5c5c;
+}
+.greenHorse {
+    background-color: #78dd9f;
+    border: 1px solid #40c89c;
+}
+.redHorse{
+    background-color: #FA907F;
+    border: 1px solid #DF5A51;
+}
+.horseTable .rowTitle span {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.horseTable .iconWrap img {
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.horseTable .horseGreenBig {
+    height: 30px;
+}
+.horseTable .horseAddIcon {
+    height: 35px;
+}
+.horseTable .noHorseImg {
+    height: 30px;
+    width: 35px;
+}
+
+.donutchart-track {
+    fill: transparent;
+    stroke: #dae2e5;
+    stroke-width: 26;
+}
+.donutchart-indicator {
+    fill: transparent;
+    stroke: #aac24b;
+    stroke-width: 26;
+    stroke-dasharray: 0 10000;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.donutchart {
+    margin: 0 auto;
+    border-radius: 50%;
+    display: block;
+}
+.canvasHorse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+}
+
+.donutchart-text {
+    fill: #4e4e4e;
+    font-size: 16px;
+    transform: translateY(25px);
+}
+.donutchart-text-val {
+    font-size: 24px;
+}
+/* .donutchart-text-percent {
+  font-size: 20px;
+}
+.donutchart-text-label {
+  font-size: 9px;
+} */
+.filterBottomDetailWrap{
+    display: flex;
+    background-color: #fff;
+    padding: 25px;
+}
+.FilterbottomTable{
+    display: block;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-right: 20px;
+    width: calc(100% - 250px);
+}
+.FilterbottomTable div .table > tbody{
+    padding: 20px;
+}
+.FilterbottomTable .table > tbody > tr > td{
+    border-top-color: #ccc;
+}
+.horseFilterDetail{
+    display: block;
+    border: 1px solid #ccc;
+    min-width: 235px;
+    background-color: #fff;
+    padding: 0 20px;
+}
+.horseFilterDetail .blockRow{
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+.horseFilterDetail .blockRow:last-child{
+    border-bottom: none;
+}
+.horseFilterDetail .blockRow .nameDetail{
+    line-height: 30px;
+}
+.horseFilterDetail .blockRow .numDetail{
+    font-size: 22px;
+    font-weight: bold;
+    float: right;
+    padding-right: 5px;
+}
+.horseTable .user-icon{
+    border-radius: 50%;
+    padding: 6px;
+    margin-right: 5px;
+}
+.horseTable .user-icon img{
+    vertical-align: middle;
+}
+
+/*********************/
+/*   Media Query    */
+/*********************/
+@media only screen and (max-width: 1380px) {
+    .filterBoxWrap .filterBox .contentWrap {
+        padding: 10px 40px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .horseTableContainer {
+        margin: 40px auto;
+    }
+    .filterBoxWrap .filterBox {
+        width: calc(100% / 5 - 8px);
+        margin: 0 5px;
+        /* min-width: 145px; */
+    }
+    .filterBoxWrap .filterBox .contentWrap {
+        padding: 5px 30px;
+    }
+    .filterBoxWrap .filterBox .titleBar {
+        min-height: 40px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .filterBoxWrap .filterBox .contentWrap {
+        padding: 5px 10px;
+    }
+    .filterBoxWrap .filterBox .contentWrap .chartHorseIcon {
+        left: 38%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .breadcrumbWrap .breadcrumb {
+        text-align: center;
+    }
+    .addHorses {
+        width: 100%;
+    }
+    .horseTableContainer .filterTitle {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .filterBoxWrap .filterBox {
+        width: 100%;
+        margin: 0px 0 20px;
+    }
+    .filterBoxWrap .filterBox .contentWrap img {
+        max-width: 20%;
+    }
+
+    .horseTable td span {
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+    .horseTable > tbody > tr > td > img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .filterBoxWrap .filterBox .contentWrap .chartHorseIcon {
+        left: 45px;
+        top: 25px;
+    }
+    .donutchart {
+        float: left;
+    }
+    .filterBottomDetailWrap{
+        padding: 15px;
+        display: block;
+    }
+    .FilterbottomTable .horseTable > tbody > tr > td > img{
+        display: block;
+    }
+    .FilterbottomTable .table-responsive{
+        border:none;
+    }
+    .FilterbottomTable {
+        display: block;
+        margin-right: 0px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .horseFilterDetail {
+        display: block;
+        min-width: 100%;
+        padding: 0 20px;
+    }
+}

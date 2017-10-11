@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Equine Office</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class='<%=!user_signed_in? ? "loRegBody" : ""%>'>
+    <script type="text/javascript">
+      window.DEFAULT_SETTINGS = {
+        apiUrl: '<%= application_base_url %>',
+        csrfToken: '<%= form_authenticity_token %>',
+        jwt: '<%= jwt_token %>',
+        user: <%= raw current_user.to_json %>
+      };
+    </script>
+    <div id="root" style="height:100%"></div>
+    <%= javascript_pack_tag 'webpack-bundle' %>
+  </body>
+</html>
