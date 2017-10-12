@@ -1,12 +1,12 @@
-import React, { Component }         from 'react';
-import { connect }                  from 'react-redux';
-import AtomicForm                   from 'atomic-form';
-import { bindActionCreators }       from 'redux';
-import LessonAction                 from '../actions/lesson';
-import Modal                        from 'simple-react-modal';
-import BaseComponent                from '../components/base_component';
-import { Link }                     from 'react-router';
-import FooterContainer              from './footer_container';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import AtomicForm from 'atomic-form';
+import { bindActionCreators } from 'redux';
+import LessonAction from '../actions/lesson';
+import Modal from 'simple-react-modal';
+import BaseComponent from '../components/base_component';
+import { Link } from 'react-router';
+import FooterContainer from './footer_container';
 
 var flag = 0;
 class HorseContainer extends BaseComponent {
@@ -34,18 +34,25 @@ class HorseContainer extends BaseComponent {
     this.props.getHorsesReport(this.state.initialData);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    setTimeout(() => {
+      $('.selectpicker').selectpicker();
+      $('#weeklyDatePicker').datetimepicker({
+        format: 'MM/DD/YYYY'
+      });
+    }, 100);
+  }
 
   onFilter(e) {
-    var self = this
+    var self = this;
     const initialData = self.state.initialData;
     var key = e.target.name;
     initialData[key] = e.target.value;
-    self.setState({isHorseSelected: true, initialData }, function() {
+    self.setState({ isHorseSelected: true, initialData }, function() {
       this.props.getHorsesReport(initialData);
     });
     flag = 0;
-    this.setState({isHorseSelected: e.target.value ? true : false})
+    this.setState({ isHorseSelected: initialData.horse_id ? true : false });
   }
 
   averageDayPerHorse(chartData) {
@@ -58,46 +65,54 @@ class HorseContainer extends BaseComponent {
     }
   }
 
-  generateBlankTr(horse, parentIndex){
+  generateBlankTr(horse, parentIndex) {
     return (
       <tr key={horse.date}>
-        { parentIndex === 0 && 
-          <td className="rowTitle" rowSpan="7">
+        {parentIndex === 0 && (
+          <td className="rowTitle titleTop" rowSpan="7">
             <div className="iconWrap greenHorse">
               <img src={'/assets/hrseIcn.png'} className="" />
             </div>
-              <span>{horse.horse_name}</span>
+            <span>{horse.horse_name}</span>
           </td>
-        }
-        <td>{horse.date}</td>            
-        <td><img src={'/assets/noHorses.png'} className="noHorseImg" /></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        )}
+        <td className="fBold">{horse.date}</td>
+        <td>
+          <img src={'/assets/noHorses.png'} className="noHorseImg" />
+        </td>
+        <td />
+        <td />
+        <td />
       </tr>
-    )
+    );
   }
   generateDataTr(horse, parentIndex, index) {
     return (
       <tr key={index}>
-        { parentIndex === 0 && 
-          <td className="rowTitle" rowSpan="7">
+        {parentIndex === 0 && (
+          <td className="rowTitle titleTop" rowSpan="7">
             <div className="iconWrap greenHorse">
               <img src={'/assets/hrseIcn.png'} className="" />
             </div>
-              <span>{horse.horse_name}</span>
+            <span>{horse.horse_name}</span>
           </td>
-        }
-        <td>{horse.scheduled_date}<br />{horse.start_time} - {horse.end_time}</td>
-        <td>{horse.lesson_name}</td>
+        )}
         <td>
-          <span className="user-icon redHorse"><img className="icon" src="/assets/staffIcn.png"/></span>
+          <span className="fBold">{horse.scheduled_date}</span>
+          <br />
+          {horse.start_time} - {horse.end_time}
+        </td>
+        <td className="fBold tableLessonName">{horse.lesson_name}</td>
+        <td>
+          <span className="user-icon redHorse">
+            <img className="icon" src="/assets/staffIcn.png" />
+          </span>
           <span>{horse.instructor_name}</span>
         </td>
-        <td>{"-"}</td>
+        <td>{'-'}</td>
         <td>{horse.lesson_notes}</td>
       </tr>
-    )
+    );
   }
 
   createHorsesDay(horseRecords, day) {
@@ -154,12 +169,14 @@ class HorseContainer extends BaseComponent {
     var startDate = this.props.startDate;
     var endDate = this.props.endDate;
     var daysWorkedCount = this.props.daysWorkedCount;
-    var daysOffCount= this.props.daysOffCount;
-    
+    var daysOffCount = this.props.daysOffCount;
+
     var App = React.createClass({
       getInitialState() {
         return {
-          donutval: this.props.horseUse ?  parseInt(this.props.donutval) : parseFloat(parseFloat(this.props.donutval).toFixed(2))
+          donutval: this.props.horseUse
+            ? parseInt(this.props.donutval)
+            : parseFloat(parseFloat(this.props.donutval).toFixed(2))
         };
       },
       updateVal(e) {
@@ -175,7 +192,6 @@ class HorseContainer extends BaseComponent {
               value={this.state.donutval || 0}
             />
           </div>
-          
         );
       }
     });
@@ -292,7 +308,7 @@ class HorseContainer extends BaseComponent {
                 </div>
                 <div className="col-sm-6 col-xs-12 addHorsesWrap">
                   <div className="addLsn addHorses">
-                    <Link to='/dashboard'>Back to Dashboard</Link>
+                    <Link to="/dashboard">Back to Dashboard</Link>
                   </div>
                 </div>
               </div>
@@ -313,6 +329,7 @@ class HorseContainer extends BaseComponent {
                             onBlur={e => {
                               this.onFilter(e);
                             }}
+                            className="weeklyDatepicker"
                           />
                         </div>
                       </div>
@@ -433,7 +450,7 @@ class HorseContainer extends BaseComponent {
                       ))}
                     </select>
                   </div>
-                  {!this.state.isHorseSelected && 
+                  {!this.state.isHorseSelected && (
                     <div>
                       <div className="table-responsive hidden-xs">
                         <table className="table horseTable">
@@ -446,19 +463,39 @@ class HorseContainer extends BaseComponent {
                           <tbody>
                             <tr>
                               <td className="columnTitle">Horse</td>
-                              <td className="text-uppercase columnTitle">SUN</td>
-                              <td className="text-uppercase columnTitle">MON</td>
-                              <td className="text-uppercase columnTitle">TUE</td>
-                              <td className="text-uppercase columnTitle">WED</td>
-                              <td className="text-uppercase columnTitle">THU</td>
-                              <td className="text-uppercase columnTitle">FRI</td>
-                              <td className="text-uppercase columnTitle">SAT</td>
+                              <td className="text-uppercase columnTitle">
+                                SUN
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                MON
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                TUE
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                WED
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                THU
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                FRI
+                              </td>
+                              <td className="text-uppercase columnTitle">
+                                SAT
+                              </td>
                             </tr>
                             {horsesReport.map((horse, index) => (
-                              <tr key={index} data-status={horse[0]['horse_name']}>
+                              <tr
+                                key={index}
+                                data-status={horse[0]['horse_name']}
+                              >
                                 <td className="rowTitle">
                                   <div className="iconWrap blueHorse">
-                                    <img src={'/assets/hrseIcn.png'} className="" />
+                                    <img
+                                      src={'/assets/hrseIcn.png'}
+                                      className=""
+                                    />
                                   </div>
                                   <span>{horse[0]['horse_name']}</span>
                                 </td>
@@ -493,12 +530,17 @@ class HorseContainer extends BaseComponent {
                               <tr key={index}>
                                 <td className="rowTitle">
                                   <div className="iconWrap blueHorse">
-                                    <img src={'/assets/hrseIcn.png'} className="" />
+                                    <img
+                                      src={'/assets/hrseIcn.png'}
+                                      className=""
+                                    />
                                   </div>
                                   <span>{horse[0]['horse_name']}</span>
                                 </td>
                                 <td>
-                                  <span className="colorGreen">{horse.length}</span>
+                                  <span className="colorGreen">
+                                    {horse.length}
+                                  </span>
                                   <img
                                     src={'/assets/hrseIcnGreenSmall.png'}
                                     className=""
@@ -523,8 +565,8 @@ class HorseContainer extends BaseComponent {
                         </table>
                       </div>
                     </div>
-                  }
-                  {this.state.isHorseSelected && 
+                  )}
+                  {this.state.isHorseSelected && (
                     <div>
                       <div className="table-responsive">
                         <table className="table horseTable">
@@ -543,18 +585,18 @@ class HorseContainer extends BaseComponent {
                               <td className="columnTitle">Assigned To</td>
                               <td className="columnTitle">Horse Notes</td>
                             </tr>
-                            { horsesWeeklyReport.map((horses, parentIndex) => (
-                              horses[0].date ? 
-                                (
-                                  this.generateBlankTr(horses[0], parentIndex)
-                                ) : 
-                                (
-                                  horses.map((horse, index) => (
-                                    this.generateDataTr(horse,parentIndex,index)
-                                  )
-                                )
-                              )
-                            ))}
+                            {horsesWeeklyReport.map(
+                              (horses, parentIndex) =>
+                                horses[0].date
+                                  ? this.generateBlankTr(horses[0], parentIndex)
+                                  : horses.map((horse, index) =>
+                                      this.generateDataTr(
+                                        horse,
+                                        parentIndex,
+                                        index
+                                      )
+                                    )
+                            )}
                           </tbody>
                         </table>
                       </div>
@@ -564,13 +606,27 @@ class HorseContainer extends BaseComponent {
                             <table className="table horseTable">
                               <tbody>
                                 <tr>
-                                  <td className="text-uppercase columnTitle">SUN</td>
-                                  <td className="text-uppercase columnTitle">MON</td>
-                                  <td className="text-uppercase columnTitle">TUE</td>
-                                  <td className="text-uppercase columnTitle">WED</td>
-                                  <td className="text-uppercase columnTitle">THU</td>
-                                  <td className="text-uppercase columnTitle">FRI</td>
-                                  <td className="text-uppercase columnTitle">SAT</td>
+                                  <td className="text-uppercase columnTitle">
+                                    SUN
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    MON
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    TUE
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    WED
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    THU
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    FRI
+                                  </td>
+                                  <td className="text-uppercase columnTitle">
+                                    SAT
+                                  </td>
                                 </tr>
                                 {horsesReport.map((horse, index) => (
                                   <tr key={index}>
@@ -588,43 +644,31 @@ class HorseContainer extends BaseComponent {
                           </div>
                         </div>
                         <div className="horseFilterDetail">
-                            <div className="blockRow">
-                              <span className="nameDetail">
-                                Lessons
-                              </span>
-                              <span className="numDetail">
-                                {chartData &&
-                                chartData.filter_data.total_lessons}                              
-                              </span>
-                            </div>
-                            <div className="blockRow">
-                              <span className="nameDetail">
-                                Days Worked
-                              </span>
-                              <span className="numDetail">
-                                {daysWorkedCount}
-                              </span>
-                            </div>
-                            <div className="blockRow">                            
-                              <span className="nameDetail">
-                                Days Off
-                              </span>
-                              <span className="numDetail">
-                                {daysOffCount}
-                              </span>
-                              </div>
+                          <div className="blockRow">
+                            <span className="nameDetail">Lessons</span>
+                            <span className="numDetail">
+                              {chartData && chartData.filter_data.total_lessons}
+                            </span>
+                          </div>
+                          <div className="blockRow">
+                            <span className="nameDetail">Days Worked</span>
+                            <span className="numDetail">{daysWorkedCount}</span>
+                          </div>
+                          <div className="blockRow">
+                            <span className="nameDetail">Days Off</span>
+                            <span className="numDetail">{daysOffCount}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  }
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <FooterContainer/>
-      
+        <FooterContainer />
       </div>
     );
   }
@@ -634,13 +678,14 @@ const mapStateToProps = (state, ownProps) => {
   return {
     horses: state.horses,
     horsesReport: state.horsesReport && state.horsesReport.horses_report,
-    horsesWeeklyReport: state.horsesReport && state.horsesReport.horses_weekly_report,
+    horsesWeeklyReport:
+      state.horsesReport && state.horsesReport.horses_weekly_report,
     week: state.horsesReport && state.horsesReport.week,
     chartData: state.horsesReport && state.horsesReport.chart_data,
     startDate: state.horsesReport && state.horsesReport.start_date,
     endDate: state.horsesReport && state.horsesReport.end_date,
-    daysOffCount:  state.horsesReport && state.horsesReport.days_off_count,
-    daysWorkedCount:  state.horsesReport && state.horsesReport.days_worked_count
+    daysOffCount: state.horsesReport && state.horsesReport.days_off_count,
+    daysWorkedCount: state.horsesReport && state.horsesReport.days_worked_count
   };
 };
 
