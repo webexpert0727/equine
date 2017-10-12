@@ -89,9 +89,9 @@ function updateDate(p_value) {
     .format('MM-DD-YYYY');
   $('#weeklyDatePicker').val(firstDate + ' - ' + lastDate);
   $('#weeklyDatePicker').trigger('change');
-  if (selectedWeek) selectedWeek = moment(firstDate).week();
+  if (selectedWeek) selectedWeek = moment(firstDate, 'MM-DD-YYYY').week();
   else {
-    selectedWeek = moment(firstDate).week();
+    selectedWeek = moment(firstDate, 'MM-DD-YYYY').week();
     currentWeek = selectedWeek;
   }
 }

@@ -16,17 +16,16 @@ class Api::V1::HorsesController < Api::V1::ApiController
 
   def horses_report
     horses_report = LessonDateTimeHorse.select(
-        "lesson_date_time_horses.horse_id as horse_id,lesson_date_times.name as lesson_name,instructor_name as instructor_name, lesson_date_times.lesson_notes,DATE_FORMAT(lesson_date_times.scheduled_date,'%a, %b %d,%Y') as scheduled_date,DATE_FORMAT(lesson_date_times.scheduled_starttime,'%I %i %p') as start_time,DATE_FORMAT(lesson_date_times.scheduled_endtime,'%I %i %p') as end_time, DAYNAME(lesson_date_times.scheduled_date) as day,count(*) as count, horses.horse_name as horse_name"
+      "lesson_date_time_horses.horse_id as horse_id,lesson_date_times.name as lesson_name,instructor_name as instructor_name, lesson_date_times.lesson_notes,DATE_FORMAT(lesson_date_times.scheduled_date,'%a, %b %d,%Y') as scheduled_date,DATE_FORMAT(lesson_date_times.scheduled_starttime,'%I %i %p') as start_time,DATE_FORMAT(lesson_date_times.scheduled_endtime,'%I %i %p') as end_time, DAYNAME(lesson_date_times.scheduled_date) as day,count(*) as count, horses.horse_name as horse_name"
     ).joins(
-        :horse, :lesson_date_time => :instructor
+      :horse, :lesson_date_time => :instructor
     ).group(
-        "DAYNAME(lesson_date_times.scheduled_date), lesson_date_time_horses.horse_id")
-                        .order(
-                            "lesson_date_times.scheduled_date"
-                        )
+      "DAYNAME(lesson_date_times.scheduled_date), lesson_date_time_horses.horse_id")
+    .order(
+      "lesson_date_times.scheduled_date"
+    )
 
-
-    filter_data = LessonDateTimeHorse.select("count(*) as total_lessons,count(DISTINCT horse_id) as used_horse_count,(count(*)/count(DISTINCT horse_id)) as avarage_lessons_per_horse").joins(:horse,:lesson_date_time)
+    filter_data = LessonDateTimeHorse.select("count(*) as total_lessons,count(DISTINCT horse_id) as used_horse_count,(count(*)/count(DISTINCT horse_id)) as avarage_lessons_per_horse").joins(:horse,:lesson_date_time => :instructor)
     total_horses = Horse.count
 
     if params[:horse_id].present?
@@ -36,7 +35,7 @@ class Api::V1::HorsesController < Api::V1::ApiController
 
     if params[:week].present?
       start_date = parse_date(params[:week])
-      end_date = start_date + 7.days
+      end_date = start_date + 6.days
       week = format_of_daterange(start_date, start_date + 6.days)
       horses_report = horses_report.where("lesson_date_times.scheduled_date BETWEEN ? AND ?", start_date, end_date)
       filter_data = filter_data.where("lesson_date_times.scheduled_date BETWEEN ? AND ?", start_date, end_date)
@@ -79,7 +78,7 @@ class Api::V1::HorsesController < Api::V1::ApiController
 
     @horseWeeklyJson = {}
     scheduled_date_array = horses_report.pluck(:scheduled_date).map(&:to_date)
-    (start_date..end_date).each do |date|
+    (start_date.to_datetime..end_date.to_datetime).each do |date|
       horses_report.each do |horse|
         if scheduled_date_array.include? date
           if @horseWeeklyJson.key?(horse.scheduled_date)
